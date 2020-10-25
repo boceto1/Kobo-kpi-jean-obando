@@ -475,6 +475,7 @@ class Asset(ObjectPermissionMixin,
     name = models.CharField(max_length=255, blank=True, default='')
     date_created = models.DateTimeField(auto_now_add=True)
     date_modified = models.DateTimeField(auto_now=True)
+    last_accessed = models.DateTimeField(auto_now=True)
     content = JSONBField(default=dict)
     summary = JSONBField(default=dict)
     report_styles = JSONBField(default=dict)

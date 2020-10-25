@@ -4,6 +4,7 @@ import json
 from rest_framework import serializers
 from rest_framework.relations import HyperlinkedIdentityField
 from rest_framework.reverse import reverse
+from django.utils import timezone
 
 from kpi.constants import PERM_PARTIAL_SUBMISSIONS, PERM_VIEW_SUBMISSIONS
 from kpi.fields import RelativePrefixHyperlinkedRelatedField, WritableJSONField, \
@@ -82,6 +83,7 @@ class AssetSerializer(serializers.HyperlinkedModelSerializer):
                   'settings',
                   'asset_type',
                   'date_created',
+                  'last_accessed',
                   'summary',
                   'date_modified',
                   'version_id',
@@ -333,6 +335,7 @@ class AssetListSerializer(AssetSerializer):
         fields = ('url',
                   'date_modified',
                   'date_created',
+                  'last_accessed',
                   'owner',
                   'summary',
                   'owner__username',
